@@ -3,7 +3,7 @@ for i in colors.properties termux.properties font.ttf; do
         cp $HOME/.termux/$i $HOME/.termux/${i}.bk
         fi
         done
-
+        apt install wget
 	mkdir -p ~/.termux
 	touch $HOME/.termux/configure.bk
 	for i in colors.properties termux.properties font.ttf; do
