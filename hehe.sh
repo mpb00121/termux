@@ -7,7 +7,7 @@ for i in colors.properties termux.properties font.ttf; do
 	mkdir -p ~/.termux
 	touch $HOME/.termux/configure.bk
 	for i in colors.properties termux.properties font.ttf; do
-		wget -q https://github.com/mpb00121/termux/tree/main/style/$i -O ~/.termux/$i
+		wget -q https://github.com/mpb00121/termux/raw/main/style/$i -O ~/.termux/$i
 	done
 	#rm -r $PREFIX/etc/motd
 	#echo "toilet -F metal -F border -f future termux black" >> $PREFIX/etc/bash.bashrc
