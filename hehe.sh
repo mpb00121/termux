@@ -12,5 +12,5 @@ for i in colors.properties termux.properties font.ttf; do
 	#rm -r $PREFIX/etc/motd
 	#echo "toilet -F metal -F border -f future termux black" >> $PREFIX/etc/bash.bashrc
 	cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
-	sed -i s:PS1.*:"PS1=\'\\\\[\\\\e\[1\;34m\\\\]PATCHLOGGER ~ \\\[\\\e[0;37m\\\\]\'": $PREFIX/etc/bash.bashrc
+	sed -i s:PS1.*:"PS1=\'\\\\[\\\\e\[0\;31m\\\\]PATCHLOGGER ~ \\\[\\\e[0;37m\\\\]\'": $PREFIX/etc/bash.bashrc
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
