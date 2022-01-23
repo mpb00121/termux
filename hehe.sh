@@ -30,6 +30,7 @@ if [[ -f "$HOME/.termux/configure.bk" ]];then
 	rm $HOME/.termux/configure.bk
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
 fi
-	echo "[i] TermuxBlack Uninstalled Successfully."
+	echo "[i] Theme Uninstalled Successfully."
 
         exit 0
+fi
