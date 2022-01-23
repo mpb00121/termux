@@ -1,3 +1,4 @@
+if [[ ${1} == "--install" || ${1} == "-i" ]];then
 for i in colors.properties termux.properties font.ttf; do
         if [ -f "$HOME/.termux/$i" ];then
         cp $HOME/.termux/$i $HOME/.termux/${i}.bk
@@ -14,9 +15,9 @@ for i in colors.properties termux.properties font.ttf; do
 	cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
 	sed -i s:PS1.*:"PS1=\'\\\\[\\\\e\[0\;31m\\\\]ROOT@PATCH_LOGGER~ \\\[\\\e[0;37m\\\\]\'": $PREFIX/etc/bash.bashrc
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
+        exit 0
 
-
-
+elif [[ ${1} == "--uninstall" || ${1} == "-u" ]];then
 
 if [ -f "$PREFIX/etc/bash.bashrc.bk" ];then
 	mv $PREFIX/etc/bash.bashrc.bk $PREFIX/etc/bash.bashrc
@@ -30,3 +31,5 @@ if [[ -f "$HOME/.termux/configure.bk" ]];then
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
 fi
 	echo "[i] TermuxBlack Uninstalled Successfully."
+
+        exit 0
