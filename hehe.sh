@@ -14,3 +14,19 @@ for i in colors.properties termux.properties font.ttf; do
 	cp $PREFIX/etc/bash.bashrc $PREFIX/etc/bash.bashrc.bk
 	sed -i s:PS1.*:"PS1=\'\\\\[\\\\e\[0\;31m\\\\]ROOT@PATCH_LOGGER~ \\\[\\\e[0;37m\\\\]\'": $PREFIX/etc/bash.bashrc
 	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
+
+
+
+
+if [ -f "$PREFIX/etc/bash.bashrc.bk" ];then
+	mv $PREFIX/etc/bash.bashrc.bk $PREFIX/etc/bash.bashrc
+fi
+
+if [[ -f "$HOME/.termux/configure.bk" ]];then
+	for i in colors.properties termux.properties font.ttf; do
+        mv $HOME/.termux/${i}.bk $HOME/.termux/${i}
+	done
+	rm $HOME/.termux/configure.bk
+	am broadcast --user 0 -a com.termux.app.reload_style com.termux > /dev/null
+fi
+	echo "[i] TermuxBlack Uninstalled Successfully."
